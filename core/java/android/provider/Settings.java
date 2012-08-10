@@ -2638,6 +2638,13 @@ public final class Settings {
          * @hide
          */
         public static final String EGG_MODE = "egg_mode";
+         
+        /** 
+         * Navigation bar buttons customization
+         *
+         * @hide
+         */
+        public static final String NAV_BUTTONS = "nav_buttons";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
