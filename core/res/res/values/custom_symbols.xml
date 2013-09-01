@@ -29,4 +29,7 @@
   <java-symbol type="string" name="reboot_system" />
   <java-symbol type="string" name="reboot_progress" />
 
+  <!-- Package Manager -->
+  <java-symbol type="array" name="config_disabledComponents" />
+
 </resources>
