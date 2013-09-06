@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
+<<<<<<< HEAD:core/res/res/values/custom_symbols.xml
 /* Copyright 2012, The Android Open Source Project
+=======
+/* Copyright 2014, SlimRoms project
+>>>>>>> 8a83ac7... Privacy Guard Slim version (1/2):core/res/res/values/slim_symbols.xml
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -26,4 +30,16 @@
   <java-symbol name="reboot_title" type="string" />
   <java-symbol name="ic_lock_power_reboot" type="drawable" />
   <java-symbol name="global_action_reboot" type="string" />
+
+  <!-- Privacy Guard -->
+  <java-symbol type="string" name="privacy_guard_notification" />
+  <java-symbol type="string" name="privacy_guard_notification_detail" />
+  <java-symbol type="string" name="privacy_guard_custom_notification_detail" />
+  <java-symbol type="drawable" name="stat_notify_privacy_guard" />
+  <java-symbol type="drawable" name="stat_notify_privacy_guard_off" />
+  <java-symbol type="drawable" name="stat_notify_privacy_guard_custom" />
+  <java-symbol type="drawable" name="stat_notify_privacy_guard_plus" />
+  <java-symbol type="drawable" name="stat_notify_privacy_guard_off_plus" />
+  <java-symbol type="drawable" name="stat_notify_privacy_guard_custom_plus" />
+
 </resources>
