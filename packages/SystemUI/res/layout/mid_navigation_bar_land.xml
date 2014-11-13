@@ -30,7 +30,8 @@
         android:id="@+id/one"
         android:layout_height="40dp"
         android:layout_width="match_parent"
-        android:layout_weight="0" />
+        android:layout_weight="0"
+        systemui:glowBackground="@drawable/ic_sysbar_highlight_land" />
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -47,7 +48,8 @@
             android:layout_height="80dp"
             android:layout_width="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true" />
+            systemui:keyRepeat="true"
+            systemui:glowBackground="@drawable/ic_sysbar_highlight_land" />
         <View
             android:layout_height="0dp"
             android:layout_width="match_parent"
@@ -58,7 +60,8 @@
             android:layout_height="80dp"
             android:layout_width="match_parent"
             systemui:keyRepeat="true"
-            android:layout_weight="0" />
+            android:layout_weight="0"
+            systemui:glowBackground="@drawable/ic_sysbar_highlight_land" />
         <View
             android:layout_height="0dp"
             android:layout_width="match_parent"
@@ -69,7 +72,8 @@
             android:layout_height="80dp"
             android:layout_width="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true" />
+            systemui:keyRepeat="true"
+            systemui:glowBackground="@drawable/ic_sysbar_highlight_land" />
         <View
             android:layout_height="0dp"
             android:layout_width="match_parent"
@@ -80,12 +84,14 @@
             android:layout_height="80dp"
             android:layout_width="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true" />
+            systemui:keyRepeat="true"
+            systemui:glowBackground="@drawable/ic_sysbar_highlight_land" />
     </LinearLayout>
     <com.android.systemui.statusbar.policy.KeyButtonView
         android:id="@+id/six"
         android:layout_height="40dp"
         android:layout_width="match_parent"
         android:layout_weight="0"
-        systemui:keyRepeat="true" />
+        systemui:keyRepeat="true"
+        systemui:glowBackground="@drawable/ic_sysbar_highlight_land" />
 </LinearLayout>
