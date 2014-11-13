@@ -32,8 +32,7 @@
         android:layout_width="40dp"
         android:layout_height="match_parent"
         android:layout_weight="0"
-        android:scaleType="fitCenter"
-        systemui:glowBackground="@drawable/ic_sysbar_highlight" />
+        android:scaleType="fitCenter" />
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="0dp"
@@ -49,8 +48,7 @@
             android:layout_width="@dimen/navigation_key_width"
             android:layout_height="match_parent"
             systemui:keyRepeat="true"
-            android:layout_weight="0"
-            systemui:glowBackground="@drawable/ic_sysbar_highlight" />
+            android:layout_weight="0" />
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -60,8 +58,7 @@
             android:layout_width="@dimen/navigation_key_width"
             android:layout_height="match_parent"
             systemui:keyRepeat="true"
-            android:layout_weight="0"
-            systemui:glowBackground="@drawable/ic_sysbar_highlight" />
+            android:layout_weight="0" />
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -71,8 +68,7 @@
             android:layout_width="@dimen/navigation_key_width"
             android:layout_height="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true"
-            systemui:glowBackground="@drawable/ic_sysbar_highlight" />
+            systemui:keyRepeat="true" />
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -82,14 +78,12 @@
             android:layout_width="@dimen/navigation_key_width"
             android:layout_height="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true"
-            systemui:glowBackground="@drawable/ic_sysbar_highlight" />
+            systemui:keyRepeat="true" />
     </LinearLayout>
     <com.android.systemui.statusbar.policy.KeyButtonView
         android:id="@+id/six"
         android:layout_width="40dp"
         android:layout_height="match_parent"
         android:layout_weight="0"
-        android:scaleType="fitCenter"
-        systemui:glowBackground="@drawable/ic_sysbar_highlight" />
+        android:scaleType="fitCenter" />
 </LinearLayout>
