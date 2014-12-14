@@ -2970,6 +2970,18 @@ public final class Settings {
         public static final String LOCKSCREEN_ENABLE_POWER_MENU = "lockscreen_enable_power_menu";
 
         /**
+         * Display style of the status bar battery information
+         * 0: Display the battery an icon in portrait mode
+         * 2: Display the battery as a circle
+         * 4: Hide the battery status information
+         * 5: Display the battery an icon in landscape mode
+         * 6: Display the battery as plain text
+         * default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+
+        /**
          * Status bar battery %
          * 0: Hide the battery percentage
          * 1: Display the battery percentage inside the icon
@@ -3044,6 +3056,7 @@ public final class Settings {
             VIBRATE_WHEN_RINGING,
             RINGTONE,
             NOTIFICATION_SOUND,
+            STATUS_BAR_BATTERY_STYLE,
             STATUS_BAR_SHOW_BATTERY_PERCENT,
         };
 
@@ -5212,18 +5225,11 @@ public final class Settings {
          */
         public static final String SLEEP_TIMEOUT = "sleep_timeout";
 
-<<<<<<< HEAD
         /**
           * Whether to allow killing of the foreground app by long-pressing the Back button
           * @hide
           */
          public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
-=======
-        /** Protected Components
-         * @hide
-         */
-        public static final String PROTECTED_COMPONENTS = "protected_components";
->>>>>>> a1bab87... Fix battery % always showing at < 100%
 
         /**
          * This are the settings to be backed up.
