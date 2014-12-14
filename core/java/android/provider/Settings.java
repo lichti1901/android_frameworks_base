@@ -2903,22 +2903,11 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
-        /**
-         * Whether to show/hide status bar native battery percentage
-         * @hide
-         */
-        public static final String STATUS_BAR_NATIVE_BATTERY_PERCENTAGE = "status_bar_native_battery_percentage";
 
-        /**
-         * Status bar battery % text
-         * @hide
-         */
-        public static final String STATUS_BAR_SHOW_BATTERY_TEXT = "status_bar_show_battery_text";
-
-        /**
-         * Volume adjust sound
-         * @hide
-         */
+       /**
+        * Volume adjust sound
+        * @hide
+        */
         public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
 
         /**
@@ -2958,6 +2947,15 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_ENABLE_POWER_MENU = "lockscreen_enable_power_menu";
+
+        /**
+         * Status bar battery %
+         * 0: Hide the battery percentage
+         * 1: Display the battery percentage inside the icon
+         * 2: Display the battery percentage next to the icon
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -3024,7 +3022,8 @@ public final class Settings {
             POINTER_SPEED,
             VIBRATE_WHEN_RINGING,
             RINGTONE,
-            NOTIFICATION_SOUND
+            NOTIFICATION_SOUND,
+            STATUS_BAR_SHOW_BATTERY_PERCENT,
         };
 
         /**
