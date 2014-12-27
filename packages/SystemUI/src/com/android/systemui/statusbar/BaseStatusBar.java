@@ -282,7 +282,7 @@ public abstract class BaseStatusBar extends SystemUI implements
             updateNotifications();
         }
     };
- 
+
     class SettingsObserver extends ContentObserver {
         SettingsObserver(Handler handler) {
             super(handler);
@@ -314,8 +314,6 @@ public abstract class BaseStatusBar extends SystemUI implements
             splitAndAddToArrayList(mBlacklist, blackString, "\\|");
         }
     };
-
-    private SettingsObserver mHeadsUpSettingsObserver = new SettingsObserver(mHandler);
 
     private RemoteViews.OnClickHandler mOnClickHandler = new RemoteViews.OnClickHandler() {
         @Override
@@ -554,11 +552,11 @@ public abstract class BaseStatusBar extends SystemUI implements
                 ServiceManager.checkService(DreamService.DREAM_SERVICE));
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
 
-        SettingsObserver observer = new SettingsObserver(mHandler);
-        observer.observe();
-
         mDndList = new ArrayList<String>();
         mBlacklist = new ArrayList<String>();
+
+        SettingsObserver observer = new SettingsObserver(mHandler);
+        observer.observe();
 
         mSettingsObserver.onChange(false); // set up
         mContext.getContentResolver().registerContentObserver(
