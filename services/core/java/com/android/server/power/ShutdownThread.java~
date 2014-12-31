@@ -193,7 +193,7 @@ public final class ShutdownThread extends Thread {
             }
 
             if (sConfirmDialog == null) {
-                sConfirmDialog = new AlertDialog.Builder(context, AlertDialog.THEME_MATERIAL_DARK)
+                sConfirmDialog = new AlertDialog.Builder(context)
                         .setTitle(titleResourceId)
                         .setMessage(resourceId)
                         .setPositiveButton(com.android.internal.R.string.yes,
