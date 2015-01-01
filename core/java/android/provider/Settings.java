@@ -2959,6 +2959,12 @@ public final class Settings {
          */
         public static final String STATUS_BAR_DATE_FORMAT = "status_bar_date_format";
 
+        /** Whether to collapse panel when quick settings tile is pressed.
+         *
+         * @hide
+         */
+        public static final String QUICK_SETTINGS_COLLAPSE_PANEL = "quick_settings_collapse_panel";
+
         /**
          * Height of navigation bar buttons
          * @hide
