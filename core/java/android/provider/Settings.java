@@ -2125,6 +2125,12 @@ public final class Settings {
          */
         public static final String BATTERY_SAVER_MODE_COLOR = "battery_save_mode_color";
 
+        /** Whether to show the brightness slider in quick settings panel.
+         *
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
+
         /**
          * Deprecated Use {@link android.provider.Settings.Secure.QS_TILES}
          * @hide
