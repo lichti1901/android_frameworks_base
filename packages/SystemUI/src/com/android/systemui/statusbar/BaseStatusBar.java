@@ -2124,21 +2124,24 @@ public abstract class BaseStatusBar extends SystemUI implements
         boolean keyguardIsShowing = keyguard.isShowingAndNotOccluded()
                 && keyguard.isInputRestricted();
 
+        boolean isExpanded = false;
+        if (mStackScroller != null) {
+            isExpanded = mStackScroller.getIsExpanded();
+        }
+
         boolean interrupt = (isFullscreen || (isHighPriority && isNoisy)
                 || asHeadsUp == Notification.HEADS_UP_REQUESTED)
                 && isAllowed
                 && !accessibilityForcesLaunch
                 && mPowerManager.isScreenOn()
-                && !keyguardIsShowing;
+                && !keyguardIsShowing
+		&& !isExpanded;
+
 
         if (!interrupt) {
             boolean isHeadsUpPackage = mNoMan.getHeadsUpNotificationsEnabledForPackage(
                     sbn.getPackageName(), sbn.getUid()) != Notification.HEADS_UP_NEVER;
 
-            boolean isExpanded = false;
-            if (mStackScroller != null) {
-                isExpanded = mStackScroller.getIsExpanded();
-            }
             // Possibly a heads up package set from the user.
             interrupt = isHeadsUpPackage
                     && !sbn.isOngoing()
