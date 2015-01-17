@@ -2108,6 +2108,7 @@ public abstract class BaseStatusBar extends SystemUI implements
         if (isHeadsUpInSnooze()) {
             return false;
         }
+        mHeadsUpPackageName = sbn.getPackageName();
         // some predicates to make the boolean logic legible
         boolean isNoisy = (notification.defaults & Notification.DEFAULT_SOUND) != 0
                 || (notification.defaults & Notification.DEFAULT_VIBRATE) != 0
@@ -2146,10 +2147,6 @@ public abstract class BaseStatusBar extends SystemUI implements
                     && !accessibilityForcesLaunch
                     && !isExpanded
                     && !keyguardIsShowing;
-
-            if (interrupt) {
-                mHeadsUpPackageName = sbn.getPackageName();
-            }
         }
 
         try {
