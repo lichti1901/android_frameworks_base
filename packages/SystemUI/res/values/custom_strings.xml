@@ -104,4 +104,12 @@
 
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_data_connection_HP">HSPA+</string>
+
+    <!-- Heads up tile -->
+    <string name="quick_settings_heads_up_on">Heads up enabled</string>
+    <string name="quick_settings_heads_up_off">No interruptions</string>
+
+    <!-- Heads up toast -->
+    <string name="heads_up_enabled">Heads up notifications are enabled</string>
+    <string name="heads_up_disabled">Heads up notifications are disabled</string>
 </resources>
