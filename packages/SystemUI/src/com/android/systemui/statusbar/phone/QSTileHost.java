@@ -279,6 +279,8 @@ public class QSTileHost implements QSTile.Host {
                 return new HotspotTile(this);
             case QSConstants.TILE_NOTIFICATIONS:
                 return new NotificationsTile(this);
+            case QSConstants.TILE_DATA:
+                return new DataTile(this);
             case QSConstants.TILE_COMPASS:
                 return new CompassTile(this);
             case QSConstants.TILE_NFC:

@@ -97,8 +97,6 @@ public class QSUtils {
     private static boolean deviceSupportsDdsSupported(Context context) {
         TelephonyManager tm = (TelephonyManager)
                 context.getSystemService(Context.TELEPHONY_SERVICE);
-        return tm.isMultiSimEnabled()
-                && tm.getMultiSimConfiguration() == TelephonyManager.MultiSimVariants.DSDA;
     }
 
     public static boolean deviceSupportsMobileData(Context ctx) {
