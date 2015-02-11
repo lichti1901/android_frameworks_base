@@ -640,7 +640,7 @@ public class QSPanel extends ViewGroup {
                     Settings.Secure.QS_USE_MAIN_TILES),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER),
+                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.QS_USE_FOUR_COLUMNS),
