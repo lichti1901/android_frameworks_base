@@ -672,7 +672,7 @@ public class QSPanel extends ViewGroup {
             mUseMainTiles = Settings.Secure.getIntForUser(
             mContext.getContentResolver(), Settings.Secure.QS_USE_MAIN_TILES,
                 1, UserHandle.USER_CURRENT) == 1;
-            mBrightnessSliderEnabled = Settings.Secure.getIntForUser(
+            mBrightnessSliderEnabled = Settings.System.getIntForUser(
             mContext.getContentResolver(), Settings.System.QS_SHOW_BRIGHTNESS_SLIDER,
                 1, UserHandle.USER_CURRENT) == 1;
             mUseFourColumns = Settings.Secure.getIntForUser(
