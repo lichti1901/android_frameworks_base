@@ -76,8 +76,21 @@ public class DataTile extends QSTile<QSTile.BooleanState> {
     }
 
     @Override
+    protected void handleSecondaryClick() {
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName(
+                "com.android.settings",
+                "com.android.settings.Settings$DataUsageSummaryActivity"));
+        mHost.startSettingsActivity(intent);
+    }
+
+    @Override
     protected void handleLongClick() {
-        mHost.startSettingsActivity(WIRELESS_SETTINGS);
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName(
+                "com.android.settings",
+                "com.android.settings.Settings$DataUsageSummaryActivity"));
+        mHost.startSettingsActivity(intent);
     }
 
     private void setEnabled(boolean enabled) {
