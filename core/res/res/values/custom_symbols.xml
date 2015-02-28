@@ -62,6 +62,4 @@
   <!-- Package Manager -->
   <java-symbol type="array" name="config_disabledComponents" />
 
-  <!-- Doze Settings -->
-  <java-symbol type="bool" name="config_dozeUseAccelerometer" />
 </resources>
