@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NotificationsTile;
+import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.HeadsupTile;
 import com.android.systemui.qs.tiles.WifiTile;
@@ -305,6 +306,8 @@ public class QSTileHost implements QSTile.Host {
                 return new BatterySaverTile(this);
             case QSConstants.TILE_EXPANDED_DESKTOP:
                 return new ExpandedDesktopTile(this);
+            case QSConstants.TILE_REBOOT:
+                return new RebootTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }

@@ -35,11 +35,11 @@
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_data_connection_HP">HSPA+</string>
 
+    <!-- QS TILES -->
     <!-- Data Tile -->
     <string name="quick_settings_mobile_data_label">Mobile data</string>
     <string name="accessibility_quick_settings_data_on">Mobile data on</string>
     <string name="accessibility_quick_settings_data_off">Mobile data off</string>
-
     <!-- Custom Tiles -->
     <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
     <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
@@ -48,32 +48,29 @@
     <string name="quick_settings_location_gps_only_label">GPS only</string>
     <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
     <string name="quick_settings_location_detail_title">Location mode</string>
-
     <!-- NFC qs tile -->
     <string name="quick_settings_nfc_label">NFC</string>
-
     <!-- Compass qs tile -->
     <string name="quick_settings_compass_label">Compass</string>
     <string name="quick_settings_compass_value" translatable="false"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
     <string name="quick_settings_compass_init">Initializing\u2026</string>
-
     <!-- Heads up tile -->
     <string name="quick_settings_heads_up_on">Heads up enabled</string>
     <string name="quick_settings_heads_up_off">No interruptions</string>
     <!-- Heads up toast -->
     <string name="heads_up_enabled">Heads up notifications are enabled</string>
     <string name="heads_up_disabled">Heads up notifications are disabled</string>
-
     <!-- Brightness tile -->
     <string name="quick_settings_brightness">Brightness</string>
-
     <!-- Battery saver -->
     <string name="quick_settings_battery_saver">Battery saver</string>
     <string name="quick_settings_battery_saver_off">Battery saver off</string>
-
     <!-- expanded tile -->
     <string name="quick_settings_expanded_desktop">Expanded</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
+    <!-- Reboot tile -->
+    <string name="quick_settings_reboot_label">Reboot</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
 
     <!-- Lockscreen shortcuts -->
     <string name="left_shortcut_hint">Swipe right for %1$s</string>
