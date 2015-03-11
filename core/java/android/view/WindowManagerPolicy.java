@@ -870,10 +870,13 @@ public interface WindowManagerPolicy {
      * be correct.
      *
      * @param attrs The LayoutParams of the window.
-     * @param contentInset The areas covered by system windows, expressed as positive insets
+     * @param outContentInsets The areas covered by system windows, expressed as positive insets.
+     * @param outStableInsets The areas covered by stable system windows irrespective of their
+     *                        current visibility. Expressed as positive insets.
      *
      */
-    public void getContentInsetHintLw(WindowManager.LayoutParams attrs, Rect contentInset);
+    public void getInsetHintLw(WindowManager.LayoutParams attrs, Rect outContentInsets,
+            Rect outStableInsets);
 
     /**
      * Called when layout of the windows is finished.  After this function has
@@ -904,9 +907,10 @@ public interface WindowManagerPolicy {
      *
      * @param win The window being positioned.
      * @param attrs The LayoutParams of the window.
+     * @param attached For sub-windows, the window it is attached to. Otherwise null.
      */
     public void applyPostLayoutPolicyLw(WindowState win,
-            WindowManager.LayoutParams attrs);
+            WindowManager.LayoutParams attrs, WindowState attached);
 
     /**
      * Called following layout of all windows and after policy has been applied

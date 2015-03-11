@@ -50,6 +50,11 @@ public class LocationTile extends QSTile<QSTile.BooleanState> {
     };
 
     private final List<Integer> mLocationList = new ArrayList<>();
+    private final AnimationIcon mEnable =
+            new AnimationIcon(R.drawable.ic_signal_location_enable_animation);
+    private final AnimationIcon mDisable =
+            new AnimationIcon(R.drawable.ic_signal_location_disable_animation);
+
     private final LocationController mController;
     private final LocationDetailAdapter mDetailAdapter;
     private final KeyguardMonitor mKeyguard;
@@ -89,7 +94,8 @@ public class LocationTile extends QSTile<QSTile.BooleanState> {
             showDetail(true);
         } else {
             mController.setLocationEnabled(!mController.isLocationEnabled());
-            qsCollapsePanel();
+            mEnable.setAllowAnimation(true);
+            mDisable.setAllowAnimation(true);
         }
     }
 

@@ -16,7 +16,6 @@
 
 package com.android.internal.widget;
 
-import com.android.internal.widget.ILockSettingsObserver;
 import android.gesture.Gesture;
 
 /** {@hide} */
@@ -38,6 +37,4 @@ interface ILockSettings {
     boolean haveGesture(int userId);
     boolean havePassword(int userId);
     void removeUser(int userId);
-    void registerObserver(in ILockSettingsObserver observer);
-    void unregisterObserver(in ILockSettingsObserver observer);
 }

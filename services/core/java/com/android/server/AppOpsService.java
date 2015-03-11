@@ -29,6 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import android.app.ActivityManager;
 import android.app.ActivityThread;
 import android.app.AppOpsManager;
 import android.content.Context;
@@ -54,7 +55,6 @@ import android.util.Log;
 import android.util.Pair;
 import android.util.Slog;
 import android.util.SparseArray;
-import android.util.SparseIntArray;
 import android.util.TimeUtils;
 import android.util.Xml;
 
@@ -79,10 +79,12 @@ public class AppOpsService extends IAppOpsService.Stub {
     final Handler mHandler;
 
     boolean mWriteScheduled;
+    boolean mFastWriteScheduled;
     final Runnable mWriteRunner = new Runnable() {
         public void run() {
             synchronized (AppOpsService.this) {
                 mWriteScheduled = false;
+                mFastWriteScheduled = false;
                 AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
                     @Override protected Void doInBackground(Void... params) {
                         writeState();
@@ -272,7 +274,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                 mLoadPrivLaterPkgs = null;
             }
             if (changed) {
-                scheduleWriteLocked();
+                scheduleFastWriteLocked();
             }
         }
     }
@@ -285,7 +287,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                     if (pkgs.size() <= 0) {
                         mUidOps.remove(uid);
                     }
-                    scheduleWriteLocked();
+                    scheduleFastWriteLocked();
                 }
             }
         }
@@ -295,7 +297,7 @@ public class AppOpsService extends IAppOpsService.Stub {
         synchronized (this) {
             if (mUidOps.indexOfKey(uid) >= 0) {
                 mUidOps.remove(uid);
-                scheduleWriteLocked();
+                scheduleFastWriteLocked();
             }
         }
     }
@@ -435,7 +437,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                         // if there is nothing else interesting in it.
                         pruneOp(op, uid, packageName);
                     }
-                    scheduleWriteNowLocked();
+                    scheduleFastWriteLocked();
                 }
             }
         }
@@ -471,16 +473,20 @@ public class AppOpsService extends IAppOpsService.Stub {
     }
 
     @Override
-    public void resetAllModes() {
-        int callingUid = Binder.getCallingUid();
+    public void resetAllModes(int reqUserId, String reqPackageName) {
+        final int callingPid = Binder.getCallingPid();
+        final int callingUid = Binder.getCallingUid();
         mContext.enforcePermission(android.Manifest.permission.UPDATE_APP_OPS_STATS,
-                Binder.getCallingPid(), callingUid, null);
+                callingPid, callingUid, null);
+        reqUserId = ActivityManager.handleIncomingUser(callingPid, callingUid, reqUserId,
+                true, true, "resetAllModes", null);
         HashMap<Callback, ArrayList<Pair<String, Integer>>> callbacks = null;
         synchronized (this) {
             boolean changed = false;
             for (int i=mUidOps.size()-1; i>=0; i--) {
                 HashMap<String, Ops> packages = mUidOps.valueAt(i);
-                if (UserHandle.getUserId(callingUid) != UserHandle.getUserId(mUidOps.keyAt(i))) {
+                if (reqUserId != UserHandle.USER_ALL
+                        && reqUserId != UserHandle.getUserId(mUidOps.keyAt(i))) {
                     // Skip any ops for a different user
                     continue;
                 }
@@ -488,6 +494,10 @@ public class AppOpsService extends IAppOpsService.Stub {
                 while (it.hasNext()) {
                     Map.Entry<String, Ops> ent = it.next();
                     String packageName = ent.getKey();
+                    if (reqPackageName != null && !reqPackageName.equals(packageName)) {
+                        // Skip any ops for a different package
+                        continue;
+                    }
                     Ops pkgOps = ent.getValue();
                     for (int j=pkgOps.size()-1; j>=0; j--) {
                         Op curOp = pkgOps.valueAt(j);
@@ -513,7 +523,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                 }
             }
             if (changed) {
-                scheduleWriteNowLocked();
+                scheduleFastWriteLocked();
             }
         }
         if (callbacks != null) {
@@ -872,12 +882,13 @@ public class AppOpsService extends IAppOpsService.Stub {
         }
     }
 
-    private void scheduleWriteNowLocked() {
-        if (!mWriteScheduled) {
+    private void scheduleFastWriteLocked() {
+        if (!mFastWriteScheduled) {
             mWriteScheduled = true;
+            mFastWriteScheduled = true;
+            mHandler.removeCallbacks(mWriteRunner);
+            mHandler.postDelayed(mWriteRunner, 10*1000);
         }
-        mHandler.removeCallbacks(mWriteRunner);
-        mHandler.post(mWriteRunner);
     }
 
     private Op getOpLocked(int code, int uid, String packageName, boolean edit) {
@@ -1260,12 +1271,11 @@ public class AppOpsService extends IAppOpsService.Stub {
                             pw.print(" ago");
                         }
                         if (op.duration == -1) {
-                            pw.println(" (running)");
-                        } else {
-                            pw.print("; duration=");
-                                    TimeUtils.formatDuration(op.duration, pw);
-                                    pw.println();
+                            pw.print(" (running)");
+                        } else if (op.duration != 0) {
+                            pw.print("; duration="); TimeUtils.formatDuration(op.duration, pw);
                         }
+                        pw.println();
                     }
                 }
             }

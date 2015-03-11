@@ -56,8 +56,9 @@ public class StackTapPointerEventListener implements PointerEventListener {
                 if (mPointerId >= 0) {
                     int index = motionEvent.findPointerIndex(mPointerId);
                     if ((motionEvent.getEventTime() - motionEvent.getDownTime()) > TAP_TIMEOUT_MSEC
-                            || Math.abs(motionEvent.getX(index) - mDownX) > mMotionSlop
-                            || Math.abs(motionEvent.getY(index) - mDownY) > mMotionSlop) {
+                            || index < 0
+                            || (motionEvent.getX(index) - mDownX) > mMotionSlop
+                            || (motionEvent.getY(index) - mDownY) > mMotionSlop) {
                         mPointerId = -1;
                     }
                 }
