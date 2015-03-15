@@ -5030,12 +5030,6 @@ public final class Settings {
         public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
-         * Whether to use the custom quick unlock screen control
-         * @hide
-         */
-        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
-
-        /**
          * Whether user is allowed to pull down quick settings on secure keyguard.
          * @hide
          */
@@ -5137,10 +5131,10 @@ public final class Settings {
         public static final String SLEEP_TIMEOUT = "sleep_timeout";
 
         /**
-         * Whether to allow killing of the foreground app by long-pressing the Back button
-         * @hide
-         */
-        public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+          * Whether to allow killing of the foreground app by long-pressing the Back button
+          * @hide
+          */
+         public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
 
         /** 
          * Protected Components
@@ -5200,8 +5194,7 @@ public final class Settings {
             UI_NIGHT_MODE,
             SLEEP_TIMEOUT,
             ADVANCED_REBOOT,
-            STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
-            LOCKSCREEN_QUICK_UNLOCK_CONTROL
+            STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD
         };
 
         /**
