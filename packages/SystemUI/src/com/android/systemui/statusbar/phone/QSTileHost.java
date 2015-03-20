@@ -49,6 +49,7 @@ import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NotificationsTile;
+import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.HeadsupTile;
 import com.android.systemui.qs.tiles.WifiTile;
@@ -308,6 +309,8 @@ public class QSTileHost implements QSTile.Host {
                 return new ExpandedDesktopTile(this);
     	    case QSConstants.TILE_HEADS_UP:
         		return new HeadsupTile(this);
+            case QSConstants.TILE_MUSIC:
+                return new MusicTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }
