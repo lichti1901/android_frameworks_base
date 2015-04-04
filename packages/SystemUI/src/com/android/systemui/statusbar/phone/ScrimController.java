@@ -53,7 +53,6 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener {
     private final ScrimView mScrimBehind;
     private final ScrimView mScrimInFront;
     private final UnlockMethodCache mUnlockMethodCache;
-    private final DozeParameters mDozeParameters;
     private Context mContext;
     private Handler mHandler = new Handler();
 
