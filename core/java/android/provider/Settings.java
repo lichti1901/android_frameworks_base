@@ -3141,13 +3141,6 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
 
         /**
-         * Ad blocker
-	 * Disable ads (HFM)
-	 * @hide
-	 */
-	public static final String HFM_DISABLE_ADS = "hfm_disable_ads";
-
-        /**
          * show clear all recents button
          *  @hide
          */
